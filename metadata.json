@@ -1,0 +1,10 @@
+{
+  "name": "Subariyanto Perencanaan Kokurikuler Madrasah",
+  "description": "Aplikasi penyusun dokumen Perencanaan Kokurikuler Madrasah otomatis sesuai Panduan Kurikulum Kementerian Agama Tahun 2025.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
