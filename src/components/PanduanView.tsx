@@ -129,7 +129,7 @@ export default function PanduanView({ user, onNavigate }: PanduanViewProps) {
       a: 'Aplikasi tetap mengizinkan Anda membuat Modul Perencanaan. Namun, untuk mencetak Lembar Observasi Murid dan Raport Kokurikuler secara otomatis, Anda disarankan melengkapi Data Guru dan Data Murid di menu Data Master terlebih dahulu.'
     },
     {
-      q: 'Apa itu Kurikulum Berbasis Cinta (KBC) dan Panca Cinta dalam perencanaan ini?',
+      q: 'Apa itu Sistem Perencanaan Kokurikuler - KBC dan Panca Cinta dalam perencanaan ini?',
       a: 'KBC adalah pendekatan pembelajaran khas Kementerian Agama yang mengedepankan suasana belajar yang menyejukkan, membahagiakan, dan berpusat pada kasih sayang. Panca Cinta mencakup: (1) Cinta Allah & Rasul, (2) Cinta Diri & Sesama, (3) Cinta Ilmu & Karya, (4) Cinta Tanah Air, dan (5) Cinta Lingkungan.'
     },
     {
@@ -188,7 +188,7 @@ export default function PanduanView({ user, onNavigate }: PanduanViewProps) {
             Cara Mengisi & Menggunakan Aplikasi Perencanaan Kokurikuler
           </h1>
           <p className="text-xs sm:text-sm font-semibold text-slate-900 leading-relaxed">
-            Panduan praktis langkah demi langkah untuk menyusun modul kokurikuler madrasah berbasis Kurikulum Berbasis Cinta (KBC) dan standar Kemenag RI 2025.
+            Panduan praktis langkah demi langkah untuk menyusun modul kokurikuler madrasah berbasis Sistem Perencanaan Kokurikuler - KBC dan standar Kemenag RI 2025.
           </p>
         </div>
       </div>

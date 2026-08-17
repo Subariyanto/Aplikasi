@@ -350,7 +350,7 @@ export default function LoginView({ simulatedProfiles = [], onLoginSuccess }: Lo
               {/* Title & Tagline */}
               <div className="space-y-3">
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
-                  Kurikulum Berbasis Cinta <span className="text-amber-300 font-extrabold">(KBC)</span>
+                  Sistem Perencanaan Kokurikuler - <span className="text-amber-300 font-extrabold">KBC</span>
                 </h1>
                 <p className="text-xs text-emerald-100/90 leading-relaxed font-normal">
                   Platform perencanaan kokurikuler, integrasi 7 Kebiasaan Anak Indonesia Hebat, serta penyusunan modul & dokumen utuh berbasis nilai Panca Cinta Kemenag.

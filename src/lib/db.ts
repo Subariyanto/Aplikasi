@@ -301,7 +301,7 @@ const INITIAL_ANALISIS: AnalisisMadrasah[] = [
   {
     id: 'analisis-1',
     madrasah_id: 'madr-1',
-    kesesuaian_kurikulum: 'Sangat sesuai dengan Kurikulum Berbasis Cinta (KBC) Madrasah yang memprioritaskan akhlak terpuji dan kepedulian lingkungan.',
+    kesesuaian_kurikulum: 'Sangat sesuai dengan Sistem Perencanaan Kokurikuler - KBC Madrasah yang memprioritaskan akhlak terpuji dan kepedulian lingkungan.',
     minat_bakat_murid: 'Murid memiliki minat besar dalam aktivitas luar kelas, praktek langsung (gardening), dan pembuatan video kreatif.',
     capaian_belum_optimal: 'Kemampuan berpikir kritis dalam pemecahan masalah sampah dan kerja sama tim yang berkesadaran masih perlu ditingkatkan.',
     dimensi_perlu_diperkuat: ['Penalaran kritis', 'Kolaborasi', 'Kesehatan'],

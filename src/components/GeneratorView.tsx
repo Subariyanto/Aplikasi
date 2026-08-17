@@ -921,7 +921,7 @@ export default function GeneratorView({ user, onNavigate, activeDocId }: Generat
 
               {/* Materi Integrasi recommended check list based on chosen Panca Cinta */}
               <div className="bg-slate-50/50 p-5 rounded-xl border border-slate-100 space-y-3">
-                <h4 className="font-bold text-xs text-slate-800">Materi Integrasi Kurikulum Berbasis Cinta (KBC)</h4>
+                <h4 className="font-bold text-xs text-slate-800">Materi Integrasi Sistem Perencanaan Kokurikuler - KBC</h4>
                 <p className="text-[10px] text-slate-400">Pilih rekomendasi hadis/ayat/pedagogi adab di bawah ini berdasarkan topik Panca Cinta terpilih:</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">

@@ -482,7 +482,7 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
                   DOKUMEN PROGRAM KOKURIKULER
                 </h1>
                 <h2 className="text-base sm:text-lg font-bold text-emerald-800 uppercase tracking-wider">
-                  KURIKULUM BERBASIS CINTA (KBC)
+                  SISTEM PERENCANAAN KOKURIKULER - KBC
                 </h2>
                 <p className="text-xs text-slate-600 italic max-w-lg mx-auto pt-1 font-medium">
                   "Pedoman Perencanaan, Pelaksanaan, dan Pengembangan Karakter Murid Berbasis Pembiasaan Cinta Allah, Cinta Ilmu, Cinta Lingkungan, Cinta Sesama & Tanah Air"
@@ -529,14 +529,14 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
             <div className="text-center space-y-2 border-b-2 border-slate-900 pb-4">
               <h2 className="text-lg font-black uppercase text-slate-900 tracking-wide">LEMBAR PENGESAHAN</h2>
               <h3 className="text-xs font-bold uppercase text-emerald-800 tracking-wider">
-                DOKUMEN PROGRAM KOKURIKULER KURIKULUM BERBASIS CINTA (KBC)
+                DOKUMEN PROGRAM KOKURIKULER SISTEM PERENCANAAN KOKURIKULER - KBC
               </h3>
               <p className="text-[11px] text-slate-600 font-medium">TAHUN PELAJARAN {tahunPelajaran}</p>
             </div>
 
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 leading-relaxed text-justify space-y-3">
               <p>
-                Setelah melalui proses analisis karakteristik madrasah, pengkajian potensi murid, dan penyusunan modul oleh Tim Kerja Kokurikuler, Dokumen Program Kokurikuler Kurikulum Berbasis Cinta (KBC) di <strong>{madr?.nama || 'Madrasah'}</strong> ini dengan resmi diperiksa, disetujui, dan disahkan untuk diberlakukan pada Tahun Pelajaran {tahunPelajaran}.
+                Setelah melalui proses analisis karakteristik madrasah, pengkajian potensi murid, dan penyusunan modul oleh Tim Kerja Kokurikuler, Dokumen Program Kokurikuler Sistem Perencanaan Kokurikuler - KBC di <strong>{madr?.nama || 'Madrasah'}</strong> ini dengan resmi diperiksa, disetujui, dan disahkan untuk diberlakukan pada Tahun Pelajaran {tahunPelajaran}.
               </p>
               <p>
                 Dokumen ini menjadi acuan operasional resmi bagi seluruh Pendidik, Tenaga Kependidikan, Fasilitator Proyek, dan Orang Tua Murid dalam melaksanakan pembelajaran kokurikuler yang menumbuhkembangkan akhlakul karimah dan 7 Kebiasaan Anak Indonesia Hebat.
@@ -594,10 +594,10 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
 
             <div className="space-y-4 text-justify leading-relaxed">
               <p>
-                Alhamdulillah, puji dan syukur senantiasa kita panjatkan ke hadirat Allah Swt. atas rahmat, hidayah, dan inayah-Nya sehingga Dokumen Program Kokurikuler Kurikulum Berbasis Cinta (KBC) di <strong>{madr?.nama || 'Madrasah'}</strong> Tahun Pelajaran {tahunPelajaran} ini dapat diselesaikan dengan baik dan lancar. Shalawat serta salam semoga senantiasa tercurah kepada junjungan kita Nabi Besar Muhammad saw., teladan utama akhlak mulia bagi seluruh alam.
+                Alhamdulillah, puji dan syukur senantiasa kita panjatkan ke hadirat Allah Swt. atas rahmat, hidayah, dan inayah-Nya sehingga Dokumen Program Kokurikuler Sistem Perencanaan Kokurikuler - KBC di <strong>{madr?.nama || 'Madrasah'}</strong> Tahun Pelajaran {tahunPelajaran} ini dapat diselesaikan dengan baik dan lancar. Shalawat serta salam semoga senantiasa tercurah kepada junjungan kita Nabi Besar Muhammad saw., teladan utama akhlak mulia bagi seluruh alam.
               </p>
               <p>
-                Dokumen Program Kokurikuler ini disusun sebagai bentuk komitmen nyata madrasah dalam menghadirkan pembelajaran yang tidak hanya berfokus pada capaian akademik semata, melainkan juga menyentuh kedalaman jiwa dan pembentukan karakter murid. Melalui pendekatan Kurikulum Berbasis Cinta (KBC) dan penguatan 7 Kebiasaan Anak Indonesia Hebat, kami berikhtiar menanamkan lima pilar cinta utama: <em>Cinta Allah Swt. dan Rasul-Nya, Cinta Ilmu, Cinta Lingkungan, Cinta Diri dan Sesama, serta Cinta Tanah Air</em>.
+                Dokumen Program Kokurikuler ini disusun sebagai bentuk komitmen nyata madrasah dalam menghadirkan pembelajaran yang tidak hanya berfokus pada capaian akademik semata, melainkan juga menyentuh kedalaman jiwa dan pembentukan karakter murid. Melalui pendekatan Sistem Perencanaan Kokurikuler - KBC dan penguatan 7 Kebiasaan Anak Indonesia Hebat, kami berikhtiar menanamkan lima pilar cinta utama: <em>Cinta Allah Swt. dan Rasul-Nya, Cinta Ilmu, Cinta Lingkungan, Cinta Diri dan Sesama, serta Cinta Tanah Air</em>.
               </p>
               <p>
                 Penyusunan dokumen ini dapat terwujud berkat kerja keras dan kolaborasi yang erat dari seluruh elemen madrasah. Oleh karena itu, kami menyampaikan apresiasi dan ucapan terima kasih yang setulus-tulusnya kepada:
@@ -758,12 +758,12 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
 
             <div className="space-y-4 text-justify">
               <div className="space-y-2">
-                <h3 className="font-extrabold text-xs text-slate-900 uppercase">1.1 Latar Belakang & Integrasi Kurikulum Berbasis Cinta (KBC)</h3>
+                <h3 className="font-extrabold text-xs text-slate-900 uppercase">1.1 Latar Belakang & Integrasi Sistem Perencanaan Kokurikuler - KBC</h3>
                 <p>
                   Pendidikan di madrasah memegang peranan strategis dalam membangun fondasi keimanan, ketakwaan, dan akhlakul karimah peserta didik. Di tengah dinamika globalisasi dan kemajuan teknologi digital, penguatan karakter murid tidak lagi cukup hanya dilakukan secara formal di dalam ruang kelas, melainkan membutuhkan penjiwaan utuh melalui program kokurikuler yang terstruktur, menyenangkan, dan berpusat pada kasih sayang.
                 </p>
                 <p>
-                  Kurikulum Berbasis Cinta (KBC) hadir sebagai paradigma pembelajaran di lingkungan Kementerian Agama yang mengintegrasikan nilai-nilai spiritualitas Al-Qur'an dan Hadis ke dalam lima pilar cinta utama: <strong>Cinta Allah Swt. dan Rasul-Nya, Cinta Ilmu, Cinta Lingkungan, Cinta Diri & Sesama, serta Cinta Tanah Air</strong>. Melalui lima pilar ini, kegiatan kokurikuler dirancang sedemikian rupa agar menjadi sarana habituasi (pembiasaan) yang menghidupkan 7 Kebiasaan Anak Indonesia Hebat.
+                  Sistem Perencanaan Kokurikuler - KBC hadir sebagai paradigma pembelajaran di lingkungan Kementerian Agama yang mengintegrasikan nilai-nilai spiritualitas Al-Qur'an dan Hadis ke dalam lima pilar cinta utama: <strong>Cinta Allah Swt. dan Rasul-Nya, Cinta Ilmu, Cinta Lingkungan, Cinta Diri & Sesama, serta Cinta Tanah Air</strong>. Melalui lima pilar ini, kegiatan kokurikuler dirancang sedemikian rupa agar menjadi sarana habituasi (pembiasaan) yang menghidupkan 7 Kebiasaan Anak Indonesia Hebat.
                 </p>
               </div>
 
@@ -774,7 +774,7 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
                   <li>Undang-Undang Nomor 20 Tahun 2003 tentang Sistem Pendidikan Nasional.</li>
                   <li>Peraturan Pemerintah Nomor 57 Tahun 2021 tentang Standar Nasional Pendidikan.</li>
                   <li>Keputusan Menteri Agama (KMA) Nomor 450 Tahun 2024 tentang Pedoman Implementasi Kurikulum pada RA, MI, MTs, MA, dan MAK.</li>
-                  <li>Panduan Pengembangan Kurikulum Berbasis Cinta (KBC) Direktorat KSKK Madrasah Kementerian Agama RI.</li>
+                  <li>Panduan Pengembangan Sistem Perencanaan Kokurikuler - KBC Direktorat KSKK Madrasah Kementerian Agama RI.</li>
                   <li>Surat Keputusan Kepala Madrasah tentang Tim Kerja Kokurikuler Tahun Pelajaran {tahunPelajaran}.</li>
                 </ul>
               </div>
@@ -1144,7 +1144,7 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
               <div className="space-y-2">
                 <h3 className="font-extrabold text-xs text-slate-900 uppercase">5.3 Penutup</h3>
                 <p>
-                  Dokumen Program Kokurikuler Kurikulum Berbasis Cinta (KBC) ini dirancang sebagai panduan dinamis yang senantiasa terbuka untuk penyempurnaan. Dengan konsistensi habituasi, keteladanan pendidik, serta dukungan penuh dari orang tua murid dan masyarakat, kita optimis madrasah mampu melahirkan generasi anak Indonesia hebat yang unggul, berakhlak mulia, dan penuh cinta.
+                  Dokumen Program Kokurikuler Sistem Perencanaan Kokurikuler - KBC ini dirancang sebagai panduan dinamis yang senantiasa terbuka untuk penyempurnaan. Dengan konsistensi habituasi, keteladanan pendidik, serta dukungan penuh dari orang tua murid dan masyarakat, kita optimis madrasah mampu melahirkan generasi anak Indonesia hebat yang unggul, berakhlak mulia, dan penuh cinta.
                 </p>
               </div>
             </div>
@@ -1217,7 +1217,7 @@ export const ProgramLengkapView: React.FC<ProgramLengkapViewProps> = ({ user, on
                 </h3>
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
                   <div className="flex justify-between font-bold text-slate-800 border-b pb-2">
-                    <span>RAPOR KOKURIKULER KURIKULUM BERBASIS CINTA (KBC)</span>
+                    <span>RAPOR KOKURIKULER SISTEM PERENCANAAN KOKURIKULER - KBC</span>
                     <span>{madr?.nama}</span>
                   </div>
                   <p className="text-[11px] text-slate-600">

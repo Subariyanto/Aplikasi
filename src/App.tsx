@@ -481,7 +481,7 @@ export default function App() {
 
       {/* Small informative bottom banner - Hidden in print */}
       <footer className="bg-white text-slate-500 text-[10px] py-1.5 px-4 flex justify-between items-center fixed bottom-0 left-0 right-0 z-20 shadow-sm border-t border-gray-200 print:hidden">
-        <span>Sistem Perencanaan Kokurikuler Madrasah &copy; 2026. Kurikulum Berbasis Cinta (KBC).</span>
+        <span>Sistem Perencanaan Kokurikuler Madrasah &copy; 2026. Sistem Perencanaan Kokurikuler - KBC.</span>
         <div className="flex items-center space-x-1 font-medium">
           <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
           <span className="text-slate-600">Joyful & Meaningful Learning</span>

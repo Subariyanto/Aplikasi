@@ -283,7 +283,7 @@ export default function AnalisisView({ user }: AnalisisViewProps) {
           {/* Panca Cinta */}
           <div className="bg-white p-6 rounded-xl border border-slate-100 shadow-sm space-y-3">
             <h3 className="font-bold text-slate-800 text-sm border-b border-slate-50 pb-2">3. Prioritas Topik Panca Cinta</h3>
-            <p className="text-[11px] text-slate-400">Pilih pilar Kurikulum Berbasis Cinta (KBC) yang ingin diintegrasikan</p>
+            <p className="text-[11px] text-slate-400">Pilih pilar Sistem Perencanaan Kokurikuler - KBC yang ingin diintegrasikan</p>
             <div className="space-y-3 pt-2">
               {availablePancaCinta.map(ct => {
                 const checked = cinta.includes(ct);

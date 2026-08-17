@@ -218,7 +218,7 @@ function generatePrintableHTML(
           <div style="text-align: center; margin-bottom: 24px;">
             <h2 style="font-size: 15px; font-weight: bold; text-decoration: underline; text-transform: uppercase; margin: 0;">RAPOR PROYEK KOKURIKULER</h2>
             <p style="font-size: 10px; font-weight: bold; color: #4b5563; text-transform: uppercase; margin: 4px 0 0 0; letter-spacing: 0.5px;">
-              Kurikulum Berbasis Cinta (KBC) & Panca Cinta Madrasah
+              Sistem Perencanaan Kokurikuler - KBC & Panca Cinta Madrasah
             </p>
           </div>
 
@@ -346,7 +346,7 @@ function generatePrintableHTML(
         </div>
 
         <div class="avoid-break" style="margin-bottom: 24px;">
-          <h3 style="font-size: 12px; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 4px; text-transform: uppercase; margin-bottom: 12px;">III. Landasan Karakter & Kurikulum Berbasis Cinta (KBC)</h3>
+          <h3 style="font-size: 12px; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 4px; text-transform: uppercase; margin-bottom: 12px;">III. Landasan Karakter & Sistem Perencanaan Kokurikuler - KBC</h3>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px;">
             <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; background-color: #fafafa;">
               <strong style="display: block; margin-bottom: 6px; color: #374151;">Dimensi Karakter Terpilih:</strong>
@@ -1025,7 +1025,7 @@ export default function PreviewCetakView({ docId, user, onBack, onNavigate }: Pr
                 <div className="text-center space-y-1 mb-6">
                   <h2 className="text-sm font-bold uppercase underline">RAPOR PROYEK KOKURIKULER</h2>
                   <p className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-wide">
-                    Kurikulum Berbasis Cinta (KBC) & Panca Cinta Madrasah
+                    Sistem Perencanaan Kokurikuler - KBC & Panca Cinta Madrasah
                   </p>
                 </div>
 
@@ -1208,7 +1208,7 @@ export default function PreviewCetakView({ docId, user, onBack, onNavigate }: Pr
 
           {/* Section 3: LANDASAN KARAKTER & KBC */}
           <div className="space-y-3 mb-6 avoid-break">
-            <h3 className="font-bold border-b border-black pb-1 uppercase font-sans text-xs">III. Landasan Karakter & Kurikulum Berbasis Cinta (KBC)</h3>
+            <h3 className="font-bold border-b border-black pb-1 uppercase font-sans text-xs">III. Landasan Karakter & Sistem Perencanaan Kokurikuler - KBC</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans text-xs">
               <div className="border p-3 rounded bg-slate-50/50">
