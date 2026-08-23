@@ -119,191 +119,193 @@ export default function DashboardView({ user, onNavigate }: DashboardViewProps) 
   });
 
   return (
-    <div className="space-y-5" id="dashboard-view">
+    <div className="space-y-6" id="dashboard-view">
       {/* Welcome Hero Banner */}
-      <div className="bg-gradient-to-r from-[#171b56] via-[#1c2269] to-[#0f123c] rounded-2xl p-6 sm:p-7 text-white shadow-md relative overflow-hidden">
-        {/* Large subtle book icon watermark on right side */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 translate-x-10 pointer-events-none select-none">
-          <BookOpen className="w-80 h-80 text-white" />
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-950 p-6 sm:p-8 text-white shadow-xl border border-emerald-800/30">
+        {/* Subtle decorative background glow and emblem */}
+        <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none select-none">
+          <BookOpen className="w-72 h-72 text-white" />
         </div>
 
-        <div className="relative z-10 space-y-3 max-w-3xl">
-          <div>
-            <span className="bg-amber-400 text-slate-950 font-black px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider inline-block">
-              SELAMAT DATANG DI PORTAL ADMIN KOKURIKULER
+        <div className="relative z-10 space-y-4 max-w-3xl">
+          <div className="flex items-center space-x-2">
+            <span className="inline-flex items-center space-x-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-extrabold px-3 py-1 rounded-full text-[10px] tracking-wider uppercase backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span>Portal Perencanaan Kokurikuler Kemenag 2025</span>
             </span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-snug">
-            Perencanaan Kokurikuler Madrasah Generator
-          </h2>
-
-          <p className="text-blue-100/80 text-xs sm:text-sm font-normal leading-relaxed max-w-2xl">
-            Penyusunan otomatis dokumen kurikulum, rubrik asesmen, dan lembar observasi sesuai Panduan Kementerian Agama 2025.
-          </p>
+          <div className="space-y-1.5">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              Sistem Perencanaan Kokurikuler - KBC
+            </h2>
+            <p className="text-emerald-100/80 text-xs sm:text-sm font-medium leading-relaxed max-w-2xl">
+              Generator cerdas modul proyek kokurikuler madrasah, rubrik observasi 7 Kebiasaan Anak Indonesia Hebat, dan buku dokumen kurikulum resmi.
+            </p>
+          </div>
 
           <div className="pt-2 flex flex-wrap items-center gap-2.5">
             {(user.role === UserRole.ADMIN || user.role === UserRole.KOORDINATOR_KOKURIKULER) && (
               <button 
                 onClick={() => onNavigate('generator')} 
-                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs px-4 py-2 rounded-lg transition-all shadow-sm cursor-pointer"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs px-4.5 py-2.5 rounded-xl transition-all shadow-md shadow-amber-400/20 hover:shadow-lg cursor-pointer flex items-center space-x-2"
               >
-                + Buat Perencanaan Baru
+                <Sparkles className="w-4 h-4 fill-slate-950" />
+                <span>+ Buat Perencanaan Baru</span>
               </button>
             )}
             <button 
               onClick={() => onNavigate('program_lengkap')} 
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2 rounded-lg transition-all shadow-sm cursor-pointer flex items-center space-x-1.5"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md shadow-emerald-900/40 cursor-pointer flex items-center space-x-2"
             >
-              <BookOpen className="w-3.5 h-3.5 text-white" />
-              <span>Program Kokurikuler Lengkap</span>
+              <BookOpen className="w-4 h-4 text-white" />
+              <span>Dokumen Program Lengkap</span>
             </button>
             <button 
               onClick={() => onNavigate('bank')} 
-              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs px-4 py-2 rounded-lg transition-all cursor-pointer backdrop-blur-xs"
+              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all cursor-pointer backdrop-blur-md"
             >
               Buka Bank Tema
             </button>
             <button 
               onClick={() => onNavigate('panduan')} 
-              className="bg-amber-400/20 hover:bg-amber-400/30 border border-amber-400/40 text-amber-300 font-bold text-xs px-4 py-2 rounded-lg transition-all cursor-pointer backdrop-blur-xs flex items-center space-x-1.5"
+              className="bg-white/10 hover:bg-white/20 border border-white/20 text-emerald-200 font-bold text-xs px-4 py-2.5 rounded-xl transition-all cursor-pointer backdrop-blur-md flex items-center space-x-1.5"
             >
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Panduan Penggunaan</span>
-            </button>
-            <button 
-              onClick={() => onNavigate('audio_action_items')} 
-              className="bg-emerald-500/30 hover:bg-emerald-500/40 border border-emerald-400/50 text-emerald-200 font-bold text-xs px-4 py-2 rounded-lg transition-all cursor-pointer backdrop-blur-xs flex items-center space-x-1.5"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
-              <span>Peninjau Audio & Action Items</span>
+              <HelpCircle className="w-4 h-4 text-amber-300" />
+              <span>Panduan</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Stats Counter Grid (High Density metrics bar style) */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
+      {/* Stats Counter Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
         {/* Total Plans */}
-        <div className="p-4 border-r border-b lg:border-b-0 border-gray-100 flex items-center space-x-3">
-          <div className="p-2 bg-indigo-50 border border-indigo-100 rounded text-indigo-600 shrink-0">
-            <FileText className="w-5 h-5" />
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">Total Rencana</span>
+            <div className="p-2 bg-emerald-50 text-emerald-700 rounded-xl">
+              <FileText className="w-4 h-4" />
+            </div>
           </div>
-          <div className="min-w-0">
-            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Total Rencana</p>
-            <h3 className="text-lg font-black text-slate-800 leading-none">{totalPlans}</h3>
-            <span className="text-[9px] font-bold text-green-700 bg-green-50 px-1.5 py-0.5 rounded border border-green-200 inline-block mt-1">
+          <h3 className="text-2xl font-black text-slate-900 leading-tight">{totalPlans}</h3>
+          <div className="mt-2 flex items-center">
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
               {approvedPlans} Disetujui
             </span>
           </div>
         </div>
 
         {/* Teachers */}
-        <div className="p-4 border-r border-b lg:border-b-0 border-gray-100 flex items-center space-x-3">
-          <div className="p-2 bg-indigo-50 border border-indigo-100 rounded text-indigo-600 shrink-0">
-            <Users className="w-5 h-5" />
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">Pendidik/Guru</span>
+            <div className="p-2 bg-teal-50 text-teal-700 rounded-xl">
+              <Users className="w-4 h-4" />
+            </div>
           </div>
-          <div className="min-w-0">
-            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Pendidik/Guru</p>
-            <h3 className="text-lg font-black text-slate-800 leading-none">{teachersCount}</h3>
-            <span className="text-[9px] font-bold text-slate-500 inline-block mt-1">Aktif Pengajar</span>
+          <h3 className="text-2xl font-black text-slate-900 leading-tight">{teachersCount}</h3>
+          <div className="mt-2">
+            <span className="text-[10px] font-semibold text-slate-500">Pendidik & Fasilitator</span>
           </div>
         </div>
 
         {/* Students */}
-        <div className="p-4 border-r border-b lg:border-b-0 border-gray-100 flex items-center space-x-3">
-          <div className="p-2 bg-indigo-50 border border-indigo-100 rounded text-indigo-600 shrink-0">
-            <UserSquare2 className="w-5 h-5" />
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">Murid Terdaftar</span>
+            <div className="p-2 bg-blue-50 text-blue-700 rounded-xl">
+              <UserSquare2 className="w-4 h-4" />
+            </div>
           </div>
-          <div className="min-w-0">
-            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Murid Terdaftar</p>
-            <h3 className="text-lg font-black text-slate-800 leading-none">{studentsCount}</h3>
-            <span className="text-[9px] font-bold text-slate-500 inline-block mt-1">Jenjang RA-MA</span>
+          <h3 className="text-2xl font-black text-slate-900 leading-tight">{studentsCount}</h3>
+          <div className="mt-2">
+            <span className="text-[10px] font-semibold text-slate-500">Jenjang RA s.d MA</span>
           </div>
         </div>
 
-        {/* Active Serial codes / Need Review */}
-        <div className="p-4 border-r border-b lg:border-b-0 border-gray-100 flex items-center space-x-3">
-          {user.role === UserRole.ADMIN ? (
-            <>
-              <div className="p-2 bg-indigo-50 border border-indigo-100 rounded text-indigo-600 shrink-0">
-                <KeyRound className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Kode Aktivasi</p>
-                <h3 className="text-lg font-black text-slate-800 leading-none">{activeCodesCount}</h3>
-                <span className="text-[9px] font-bold text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200 inline-block mt-1">
-                  Status Aktif
-                </span>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="p-2 bg-indigo-50 border border-indigo-100 rounded text-indigo-600 shrink-0">
-                <Layers className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Butuh Review</p>
-                <h3 className="text-lg font-black text-slate-800 leading-none">{pendingPlans}</h3>
-                <span className="text-[9px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200 inline-block mt-1">
-                  Approval Pending
-                </span>
-              </div>
-            </>
-          )}
+        {/* Active Codes / Pending review */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">
+              {user.role === UserRole.ADMIN ? 'Kode Aktivasi' : 'Status Pengajuan'}
+            </span>
+            <div className="p-2 bg-amber-50 text-amber-700 rounded-xl">
+              {user.role === UserRole.ADMIN ? <KeyRound className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
+            </div>
+          </div>
+          <h3 className="text-2xl font-black text-slate-900 leading-tight">
+            {user.role === UserRole.ADMIN ? activeCodesCount : pendingPlans}
+          </h3>
+          <div className="mt-2">
+            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${
+              user.role === UserRole.ADMIN 
+                ? 'bg-amber-50 text-amber-800 border-amber-200' 
+                : 'bg-indigo-50 text-indigo-800 border-indigo-200'
+            }`}>
+              {user.role === UserRole.ADMIN ? 'Lisensi Aktif' : `${draftPlans} Draf Modul`}
+            </span>
+          </div>
         </div>
 
-        {/* Jenis Kokurikuler */}
-        <div className="p-4 flex flex-col justify-center min-w-0">
-          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-1">Jenis Kokurikuler</p>
-          <div className="space-y-1 text-[9px] font-bold text-slate-600">
+        {/* Jenis Kokurikuler Mini Stats */}
+        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow col-span-2 md:col-span-1">
+          <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider block mb-2">Jenis Kokurikuler</span>
+          <div className="space-y-1.5 text-[10px] font-semibold">
             <div className="flex justify-between items-center">
-              <span className="flex items-center gap-1 text-slate-500 truncate">
-                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full shrink-0" /> Lintas Disiplin
+              <span className="flex items-center gap-1.5 text-slate-600 truncate">
+                <span className="w-2 h-2 bg-teal-500 rounded-full shrink-0" /> Lintas Disiplin
               </span>
-              <span className="text-slate-900 font-black">{countLintasDisiplin}</span>
+              <span className="text-slate-900 font-extrabold">{countLintasDisiplin}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="flex items-center gap-1 text-slate-500 truncate">
-                <span className="w-1.5 h-1.5 bg-amber-400 rounded-full shrink-0" /> G7KAIH
+              <span className="flex items-center gap-1.5 text-slate-600 truncate">
+                <span className="w-2 h-2 bg-amber-500 rounded-full shrink-0" /> G7KAIH
               </span>
-              <span className="text-slate-900 font-black">{countG7KAIH}</span>
+              <span className="text-slate-900 font-extrabold">{countG7KAIH}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="flex items-center gap-1 text-slate-500 truncate">
-                <span className="w-1.5 h-1.5 bg-rose-500 rounded-full shrink-0" /> KKBC
+              <span className="flex items-center gap-1.5 text-slate-600 truncate">
+                <span className="w-2 h-2 bg-emerald-600 rounded-full shrink-0" /> KKBC
               </span>
-              <span className="text-slate-900 font-black">{countKKBC}</span>
+              <span className="text-slate-900 font-extrabold">{countKKBC}</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Charts & Information Split */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        {/* Column 1: Dimension Metrics (Custom Modern SVG Bar Chart) */}
-        <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm lg:col-span-2 space-y-4">
-          <div className="flex justify-between items-center border-b border-gray-100 pb-2.5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Column 1: Dimension Metrics (Custom Modern Bar Chart) */}
+        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs lg:col-span-2 space-y-4">
+          <div className="flex justify-between items-center border-b border-slate-100 pb-3">
             <div>
-              <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Fokus Penguatan 8 Dimensi Lulusan</h3>
-              <p className="text-[10px] text-slate-400 mt-0.5">Distribusi indikator karakter pada perencanaan kokurikuler</p>
+              <h3 className="font-extrabold text-slate-900 text-xs sm:text-sm uppercase tracking-wider">
+                Distribusi 8 Dimensi Profil Lulusan
+              </h3>
+              <p className="text-[11px] text-slate-400 mt-0.5">Frekuensi indikator karakter yang diintegrasikan dalam modul</p>
             </div>
-            <Activity className="w-4 h-4 text-indigo-600" />
+            <div className="p-2 bg-emerald-50 text-emerald-700 rounded-xl">
+              <Activity className="w-4 h-4" />
+            </div>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-3 pt-1">
             {Object.entries(dimensionCounts).map(([dimension, count]) => {
               const maxVal = Math.max(...Object.values(dimensionCounts), 1);
               const percent = Math.min((count / maxVal) * 100, 100);
               return (
-                <div key={dimension} className="space-y-1">
-                  <div className="flex justify-between text-[11px] font-semibold text-slate-700">
-                    <span>{dimension}</span>
-                    <span className="font-bold text-indigo-700">{count} Dokumen</span>
+                <div key={dimension} className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-semibold text-slate-700">
+                    <span className="font-medium text-slate-800">{dimension}</span>
+                    <span className="font-extrabold text-emerald-800 bg-emerald-50/80 px-2 py-0.5 rounded-md text-[10px] border border-emerald-100">
+                      {count} Modul
+                    </span>
                   </div>
-                  <div className="w-full bg-slate-50 h-2 rounded border border-gray-100 overflow-hidden">
+                  <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                     <div 
-                      className="bg-indigo-600 h-full rounded transition-all duration-500 ease-out" 
+                      className="bg-gradient-to-r from-emerald-600 to-teal-500 h-full rounded-full transition-all duration-700 ease-out" 
                       style={{ width: `${percent}%` }}
                     />
                   </div>
@@ -314,27 +316,32 @@ export default function DashboardView({ user, onNavigate }: DashboardViewProps) 
         </div>
 
         {/* Column 2: Panca Cinta Metrics + Quick Access logs */}
-        <div className="space-y-5">
+        <div className="space-y-6">
           {/* Panca Cinta Card */}
-          <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm space-y-4">
-            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider border-b border-gray-100 pb-2.5 flex items-center space-x-2">
-              <Heart className="w-4 h-4 text-rose-500 shrink-0" />
-              <span>Keterpaduan Panca Cinta</span>
-            </h3>
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-extrabold text-slate-900 text-xs uppercase tracking-wider flex items-center space-x-2">
+                <Heart className="w-4 h-4 text-rose-500 shrink-0 fill-rose-500/20" />
+                <span>Keterpaduan Panca Cinta</span>
+              </h3>
+              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                KBC
+              </span>
+            </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               {Object.entries(pancaCintaCounts).map(([topic, count]) => {
                 const maxCintaVal = Math.max(...Object.values(pancaCintaCounts), 1);
                 const percentCinta = Math.min((count / maxCintaVal) * 100, 100);
                 return (
                   <div key={topic} className="space-y-1">
-                    <div className="flex justify-between text-[11px] font-semibold text-slate-700">
-                      <span>{topic}</span>
-                      <span className="font-bold text-slate-800">{count}</span>
+                    <div className="flex justify-between text-xs font-semibold text-slate-700">
+                      <span className="text-slate-800 text-[11px]">{topic}</span>
+                      <span className="font-bold text-slate-900 text-[11px]">{count}</span>
                     </div>
-                    <div className="w-full bg-slate-50 h-1.5 rounded overflow-hidden">
+                    <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                       <div 
-                        className="bg-indigo-500 h-full rounded" 
+                        className="bg-gradient-to-r from-teal-500 to-emerald-600 h-full rounded-full" 
                         style={{ width: `${percentCinta}%` }}
                       />
                     </div>
@@ -345,25 +352,28 @@ export default function DashboardView({ user, onNavigate }: DashboardViewProps) 
           </div>
 
           {/* Quick logs */}
-          <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm space-y-4">
-            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider border-b border-gray-100 pb-2.5 flex items-center justify-between">
-              <span>Log Aktivitas Terbaru</span>
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-            </h3>
-            <div className="space-y-2.5 max-h-52 overflow-y-auto">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-3.5">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 className="font-extrabold text-slate-900 text-xs uppercase tracking-wider">
+                Log Aktivitas Terkini
+              </h3>
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            </div>
+            
+            <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
               {logs.length === 0 ? (
-                <p className="text-[11px] text-slate-400 text-center py-4">Belum ada aktivitas terekam.</p>
+                <p className="text-xs text-slate-400 text-center py-4">Belum ada aktivitas terekam.</p>
               ) : (
                 logs.map(log => (
-                  <div key={log.id} className="text-[11px] flex items-start space-x-2 border-b border-gray-50 pb-2 last:border-0 last:pb-0">
-                    <div className="mt-0.5 p-1 bg-slate-50 border border-gray-100 rounded text-slate-400 shrink-0">
+                  <div key={log.id} className="text-xs flex items-start space-x-2.5 border-b border-slate-50 pb-2.5 last:border-0 last:pb-0">
+                    <div className="mt-0.5 p-1.5 bg-slate-100 text-slate-600 rounded-lg shrink-0">
                       <Activity className="w-3 h-3" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-slate-800 truncate leading-snug">{log.aktivitas}</p>
-                      <p className="text-slate-500 text-[10px] leading-tight mt-0.5">{log.keterangan}</p>
-                      <div className="flex justify-between text-[9px] text-slate-400 mt-1 font-mono">
-                        <span>{log.nama_lengkap} ({log.role})</span>
+                      <p className="font-bold text-slate-900 truncate leading-snug">{log.aktivitas}</p>
+                      <p className="text-slate-500 text-[11px] leading-tight mt-0.5">{log.keterangan}</p>
+                      <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
+                        <span className="truncate max-w-[140px]">{log.nama_lengkap}</span>
                         <span>{new Date(log.tanggal).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}</span>
                       </div>
                     </div>
@@ -376,30 +386,42 @@ export default function DashboardView({ user, onNavigate }: DashboardViewProps) 
       </div>
 
       {/* Madrasah Guidelines Info Cards (Quick learning) */}
-      <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm space-y-3">
-        <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider border-b border-gray-100 pb-2">
-          Prinsip Dasar Kokurikuler Madrasah 2025 (Kurikulum Berbasis Cinta)
-        </h3>
+      <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+        <div className="flex items-center space-x-2 border-b border-slate-100 pb-3">
+          <Sparkles className="w-4 h-4 text-amber-500" />
+          <h3 className="font-extrabold text-slate-900 text-xs sm:text-sm uppercase tracking-wider">
+            3 Prinsip Utama Kokurikuler Madrasah 2025
+          </h3>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-indigo-50/20 p-3.5 rounded border border-indigo-100/30 space-y-1.5">
-            <span className="w-6 h-6 bg-indigo-50 border border-indigo-100 text-indigo-700 rounded-full flex items-center justify-center font-bold text-xs shadow-sm">1</span>
-            <h4 className="font-bold text-slate-950 text-xs">Pembelajaran Bermakna (Meaningful)</h4>
-            <p className="text-slate-500 text-[11px] leading-relaxed">
-              Kegiatan bukan pengisi waktu luang atau hafalan formal, melainkan melatih murid memahami fenomena, merefleksikan hikmah ketuhanan, dan bertindak mulia.
+          <div className="bg-gradient-to-b from-emerald-50/50 to-white p-4.5 rounded-xl border border-emerald-100 space-y-2">
+            <div className="w-7 h-7 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-black text-xs shadow-xs">
+              1
+            </div>
+            <h4 className="font-bold text-slate-900 text-xs">Pembelajaran Bermakna (Meaningful)</h4>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              Bukan sekadar hafalan tugas, melainkan sarana murid memahami fenomena nyata di lingkungan, meresapi hikmah ketuhanan, dan mengamalkan akhlak terpuji.
             </p>
           </div>
-          <div className="bg-amber-50/20 p-3.5 rounded border border-amber-100/30 space-y-1.5">
-            <span className="w-6 h-6 bg-amber-50 border border-amber-100 text-amber-800 rounded-full flex items-center justify-center font-bold text-xs shadow-sm">2</span>
-            <h4 className="font-bold text-slate-950 text-xs">Pembiasaan Karakter (Mindful)</h4>
-            <p className="text-slate-500 text-[11px] leading-relaxed">
-              Dilaksanakan terencana dengan asesmen berkesinambungan melalui instrumen observasi karakter harian murid, menanamkan pilar adab terhadap guru, alam, dan sesama.
+          
+          <div className="bg-gradient-to-b from-amber-50/50 to-white p-4.5 rounded-xl border border-amber-100 space-y-2">
+            <div className="w-7 h-7 bg-amber-500 text-slate-950 rounded-lg flex items-center justify-center font-black text-xs shadow-xs">
+              2
+            </div>
+            <h4 className="font-bold text-slate-900 text-xs">Habituasi Karakter (Mindful)</h4>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              Dilaksanakan terencana dengan asesmen otentik melalui observasi harian 7 Kebiasaan Anak Indonesia Hebat dan penanaman adab islami.
             </p>
           </div>
-          <div className="bg-slate-50/40 p-3.5 rounded border border-gray-200/50 space-y-1.5">
-            <span className="w-6 h-6 bg-slate-50 border border-gray-200 text-slate-700 rounded-full flex items-center justify-center font-bold text-xs shadow-sm">3</span>
-            <h4 className="font-bold text-slate-950 text-xs">Kemitraan Catur Pusat Pendidikan</h4>
-            <p className="text-slate-500 text-[11px] leading-relaxed">
-              Mengkolaborasikan lingkungan madrasah, bimbingan keluarga di rumah, tokoh masyarakat/praktisi di lapangan, serta pemanfaatan media digital secara bijak.
+          
+          <div className="bg-gradient-to-b from-teal-50/50 to-white p-4.5 rounded-xl border border-teal-100 space-y-2">
+            <div className="w-7 h-7 bg-teal-700 text-white rounded-lg flex items-center justify-center font-black text-xs shadow-xs">
+              3
+            </div>
+            <h4 className="font-bold text-slate-900 text-xs">Kemitraan Catur Pusat Pendidikan</h4>
+            <p className="text-slate-600 text-[11px] leading-relaxed">
+              Kolaborasi harmonis antara madrasah, bimbingan orang tua di rumah, interaksi masyarakat/ahli, serta pemanfaatan media digital secara bijak.
             </p>
           </div>
         </div>

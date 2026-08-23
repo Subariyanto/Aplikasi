@@ -138,26 +138,26 @@ export default function Sidebar({
   const isGeneratorAllowed = [UserRole.ADMIN, UserRole.KOORDINATOR_KOKURIKULER].includes(user.role);
 
   return (
-    <div ref={navRef} className="w-full bg-white border-b border-gray-200/90 shadow-sm sticky top-14 z-20 print:hidden">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4">
+    <div ref={navRef} className="w-full bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_1px_2px_0_rgba(0,0,0,0.02)] sticky top-16 z-20 print:hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* DESKTOP WEBSITE NAVBAR */}
-        <div className="hidden lg:flex items-center justify-between h-11 text-xs font-semibold">
+        <div className="hidden lg:flex items-center justify-between h-12 text-xs font-semibold">
           
           {/* Left Navigation Links */}
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-1.5">
             
             {/* Dashboard Link */}
             <button
               onClick={() => handleSelectView('dashboard')}
               id="nav-dashboard"
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-xl transition-all cursor-pointer ${
                 currentView === 'dashboard'
-                  ? 'bg-amber-100/90 text-amber-950 font-bold border border-amber-300/60 shadow-xs'
-                  : 'text-slate-700 hover:bg-slate-100/80 hover:text-slate-950'
+                  ? 'bg-emerald-700 text-white font-bold shadow-xs shadow-emerald-800/20'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              <LayoutDashboard className="w-3.5 h-3.5 text-amber-600" />
+              <LayoutDashboard className={`w-3.5 h-3.5 ${currentView === 'dashboard' ? 'text-amber-300' : 'text-emerald-700'}`} />
               <span>Dashboard</span>
             </button>
 
@@ -165,13 +165,13 @@ export default function Sidebar({
             <button
               onClick={() => handleSelectView('panduan')}
               id="nav-panduan"
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-all ${
+              className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-xl transition-all cursor-pointer ${
                 currentView === 'panduan'
-                  ? 'bg-amber-100/90 text-amber-950 font-bold border border-amber-300/60 shadow-xs'
-                  : 'text-slate-700 hover:bg-slate-100/80 hover:text-slate-950'
+                  ? 'bg-emerald-700 text-white font-bold shadow-xs shadow-emerald-800/20'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+              <HelpCircle className={`w-3.5 h-3.5 ${currentView === 'panduan' ? 'text-amber-300' : 'text-emerald-700'}`} />
               <span>Panduan</span>
             </button>
 
@@ -184,25 +184,26 @@ export default function Sidebar({
                 <div key={cat.id} className="relative">
                   <button
                     onClick={() => setActiveDropdown(isOpen ? null : cat.id)}
-                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                    className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                       isCatActive
-                        ? 'bg-amber-100/90 text-amber-950 font-bold border border-amber-300/60 shadow-xs'
+                        ? 'bg-emerald-50 text-emerald-900 font-bold border border-emerald-300/80 shadow-2xs'
                         : isOpen
                         ? 'bg-slate-100 text-slate-900'
-                        : 'text-slate-700 hover:bg-slate-100/80 hover:text-slate-950'
+                        : 'text-slate-700 hover:bg-slate-100/90 hover:text-slate-950'
                     }`}
                   >
                     <span>{cat.label}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-150 ${isOpen ? 'rotate-180 text-amber-700' : ''}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-emerald-700' : ''}`} />
                   </button>
 
                   {/* Dropdown Menu Card */}
                   {isOpen && (
-                    <div className="absolute left-0 mt-1.5 w-64 bg-white rounded-xl shadow-xl border border-gray-200/90 p-1.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                      <div className="px-2 py-1 text-[10px] font-extrabold text-slate-400 uppercase tracking-wider border-b border-gray-100 mb-1">
-                        {cat.label}
+                    <div className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                      <div className="px-2.5 py-1.5 text-[10px] font-black text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1 flex items-center justify-between">
+                        <span>{cat.label}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                       </div>
-                      <div className="space-y-0.5">
+                      <div className="space-y-1">
                         {cat.items.map(item => {
                           const IconComp = item.icon;
                           const isSelected = currentView === item.id;
@@ -210,26 +211,26 @@ export default function Sidebar({
                             <button
                               key={item.id}
                               onClick={() => handleSelectView(item.id)}
-                              className={`w-full text-left flex items-start space-x-2.5 p-2 rounded-lg transition-all ${
+                              className={`w-full text-left flex items-start space-x-3 p-2.5 rounded-xl transition-all cursor-pointer ${
                                 isSelected 
-                                  ? 'bg-amber-50 text-amber-950 font-bold border border-amber-200/80' 
+                                  ? 'bg-emerald-50/90 text-emerald-950 font-bold border border-emerald-200/90 shadow-2xs' 
                                   : 'hover:bg-slate-50 text-slate-700 hover:text-slate-950'
                               }`}
                             >
-                              <div className={`p-1.5 rounded-md mt-0.5 shrink-0 ${isSelected ? 'bg-amber-400/30 text-amber-800' : 'bg-slate-100 text-slate-500'}`}>
-                                <IconComp className="w-3.5 h-3.5" />
+                              <div className={`p-2 rounded-lg mt-0.5 shrink-0 transition-colors ${isSelected ? 'bg-emerald-600 text-white shadow-2xs' : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'}`}>
+                                <IconComp className="w-4 h-4" />
                               </div>
                               <div className="min-w-0 flex-1">
                                 <div className="flex items-center justify-between">
-                                  <span className="text-xs font-semibold leading-tight">{item.label}</span>
+                                  <span className="text-xs font-semibold leading-tight text-slate-900">{item.label}</span>
                                   {item.badge && (
-                                    <span className="text-[9px] font-black px-1.5 py-0.2 rounded bg-amber-400 text-slate-950 uppercase border border-amber-500/40">
+                                    <span className="text-[9px] font-black px-2 py-0.5 rounded-md bg-amber-400 text-slate-950 uppercase border border-amber-500/30">
                                       {item.badge}
                                     </span>
                                   )}
                                 </div>
                                 {item.desc && (
-                                  <p className="text-[10px] text-slate-400 font-normal truncate mt-0.5">{item.desc}</p>
+                                  <p className="text-[11px] text-slate-400 font-normal truncate mt-0.5 leading-normal">{item.desc}</p>
                                 )}
                               </div>
                             </button>
@@ -248,13 +249,13 @@ export default function Sidebar({
             <button
               onClick={() => handleSelectView('generator')}
               id="nav-quick-generator"
-              className={`flex items-center space-x-1.5 px-3.5 py-1 rounded-lg text-xs font-black shadow-xs transition-all cursor-pointer border ${
+              className={`flex items-center space-x-2 px-4 py-1.5 rounded-xl text-xs font-extrabold shadow-sm transition-all cursor-pointer border ${
                 currentView === 'generator'
-                  ? 'bg-amber-500 text-slate-950 border-amber-600 shadow-md ring-2 ring-amber-300'
-                  : 'bg-amber-400/90 hover:bg-amber-400 text-slate-950 border-amber-500/80 hover:shadow-sm'
+                  ? 'bg-emerald-700 text-white border-emerald-800 shadow-md ring-2 ring-emerald-300'
+                  : 'bg-amber-400 hover:bg-amber-300 text-slate-950 border-amber-500/80 hover:shadow-md'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 fill-slate-950" />
+              <Sparkles className="w-3.5 h-3.5 fill-current" />
               <span>Generator Perencanaan</span>
             </button>
           )}
@@ -264,7 +265,7 @@ export default function Sidebar({
         {/* MOBILE SLIDE-OVER DRAWER BACKDROP & MENU */}
         {mobileOpenState && (
           <div 
-            className="lg:hidden fixed inset-0 bg-slate-900/50 z-40 transition-opacity" 
+            className="lg:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 transition-opacity" 
             onClick={toggleMobile}
           />
         )}
@@ -272,31 +273,34 @@ export default function Sidebar({
         <aside 
           className={`lg:hidden fixed inset-y-0 left-0 transform ${
             mobileOpenState ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-200 ease-in-out bg-white text-slate-800 w-72 flex flex-col h-full z-50 border-r border-gray-200 shadow-2xl`}
+          } transition-transform duration-200 ease-in-out bg-white text-slate-800 w-80 flex flex-col h-full z-50 border-r border-slate-200 shadow-2xl`}
         >
           {/* Mobile Drawer Header */}
-          <div className="p-4 border-b border-gray-200 bg-amber-400/20 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <span className="w-7 h-7 rounded bg-amber-500 text-slate-950 font-black text-xs flex items-center justify-center shadow-xs">
-                PK
-              </span>
-              <span className="font-extrabold text-xs uppercase tracking-tight text-slate-950">
-                Menu Perencanaan
-              </span>
+          <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-emerald-800 to-teal-900 text-white flex items-center justify-between">
+            <div className="flex items-center space-x-2.5">
+              <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 text-amber-300 font-extrabold text-xs flex items-center justify-center shadow-xs">
+                PKM
+              </div>
+              <div>
+                <span className="font-extrabold text-xs uppercase tracking-tight text-white block">
+                  Perencanaan Kokurikuler
+                </span>
+                <span className="text-[10px] text-emerald-200/80">Kemenag 2025</span>
+              </div>
             </div>
-            <button onClick={toggleMobile} className="p-1 rounded-md hover:bg-slate-200 text-slate-600">
+            <button onClick={toggleMobile} className="p-1.5 rounded-lg hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer">
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* User Info Bar */}
-          <div className="px-4 py-3 border-b border-gray-100 bg-slate-50 flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-full bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-900 font-bold text-xs uppercase">
+          <div className="px-4 py-3.5 border-b border-slate-100 bg-slate-50 flex items-center space-x-3">
+            <div className="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs">
               {user.nama_lengkap.charAt(0)}
             </div>
             <div className="flex-1 min-w-0">
               <h2 className="font-bold text-xs truncate text-slate-950">{user.nama_lengkap}</h2>
-              <span className="inline-block px-1.5 py-0.2 text-[8px] font-bold rounded bg-amber-200/80 text-amber-950 uppercase mt-0.5">
+              <span className="inline-block px-2 py-0.5 text-[8px] font-extrabold rounded-md bg-emerald-100 text-emerald-900 uppercase mt-0.5">
                 {user.role}
               </span>
             </div>
@@ -308,9 +312,9 @@ export default function Sidebar({
             {/* Dashboard button */}
             <button
               onClick={() => handleSelectView('dashboard')}
-              className={`w-full flex items-center space-x-2.5 px-3 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                 currentView === 'dashboard' 
-                  ? 'bg-amber-400 text-slate-950 shadow-xs' 
+                  ? 'bg-emerald-700 text-white shadow-xs' 
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
             >
@@ -322,17 +326,17 @@ export default function Sidebar({
             {isGeneratorAllowed && (
               <button
                 onClick={() => handleSelectView('generator')}
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-black shadow-xs transition-all border ${
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-black shadow-xs transition-all border ${
                   currentView === 'generator'
-                    ? 'bg-amber-500 text-slate-950 border-amber-600'
-                    : 'bg-amber-300 text-slate-950 border-amber-400 hover:bg-amber-400'
+                    ? 'bg-emerald-800 text-white border-emerald-900'
+                    : 'bg-amber-400 text-slate-950 border-amber-500 hover:bg-amber-300'
                 }`}
               >
-                <div className="flex items-center space-x-2">
-                  <Sparkles className="w-4 h-4 fill-slate-950" />
+                <div className="flex items-center space-x-2.5">
+                  <Sparkles className="w-4 h-4 fill-current" />
                   <span>Generator Perencanaan</span>
                 </div>
-                <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-950 text-amber-400 uppercase font-black">
+                <span className="text-[9px] px-2 py-0.5 rounded-md bg-slate-950 text-amber-300 uppercase font-black">
                   PRO
                 </span>
               </button>
@@ -340,11 +344,11 @@ export default function Sidebar({
 
             {/* Categorized Items */}
             {filteredCategories.map(cat => (
-              <div key={cat.id} className="space-y-1 pt-1">
+              <div key={cat.id} className="space-y-1 pt-2">
                 <p className="px-2 text-[10px] font-black text-slate-400 uppercase tracking-wider">
                   {cat.label}
                 </p>
-                <div className="space-y-0.5">
+                <div className="space-y-1">
                   {cat.items.map(item => {
                     const IconComp = item.icon;
                     const isSelected = currentView === item.id;
@@ -352,18 +356,18 @@ export default function Sidebar({
                       <button
                         key={item.id}
                         onClick={() => handleSelectView(item.id)}
-                        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                           isSelected
-                            ? 'bg-amber-100 text-amber-950 font-bold border border-amber-300/80'
+                            ? 'bg-emerald-50 text-emerald-950 font-bold border border-emerald-200'
                             : 'text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         <div className="flex items-center space-x-2.5">
-                          <IconComp className={`w-4 h-4 ${isSelected ? 'text-amber-800' : 'text-slate-500'}`} />
+                          <IconComp className={`w-4 h-4 ${isSelected ? 'text-emerald-700' : 'text-slate-500'}`} />
                           <span>{item.label}</span>
                         </div>
                         {item.badge && (
-                          <span className="text-[8px] font-black px-1.5 py-0.2 rounded bg-amber-400 text-slate-950">
+                          <span className="text-[8px] font-black px-1.5 py-0.5 rounded-md bg-amber-400 text-slate-950">
                             {item.badge}
                           </span>
                         )}
@@ -376,12 +380,12 @@ export default function Sidebar({
           </div>
 
           {/* Drawer Footer */}
-          <div className="p-3 border-t border-gray-200 bg-slate-50">
+          <div className="p-3.5 border-t border-slate-200 bg-slate-50">
             <button
               onClick={onLogout}
-              className="w-full flex items-center justify-center space-x-2 px-3 py-2 rounded-lg text-xs font-bold text-red-700 bg-red-50 hover:bg-red-100 transition-all border border-red-200"
+              className="w-full flex items-center justify-center space-x-2 px-3 py-2.5 rounded-xl text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 transition-all border border-rose-200"
             >
-              <LogOut className="w-4 h-4 text-red-600" />
+              <LogOut className="w-4 h-4 text-rose-600" />
               <span>Keluar Aplikasi</span>
             </button>
           </div>
