@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Printer, ArrowLeft, Download, FileText, CheckCircle, Award, AlertCircle, ExternalLink } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { PerencanaanKokurikuler, Madrasah, Profile } from '../types';
 import { db } from '../lib/db';
 import { isTrialUser, FULL_LICENSE_PRICE } from '../lib/trial';
@@ -14,6 +15,29 @@ interface PreviewCetakViewProps {
   user?: Profile | null;
   onBack: () => void;
   onNavigate?: (view: string, docId?: string) => void;
+}
+
+// Sanitize the fully-generated printable document. DOMPurify strips any
+// script / event-handler / javascript: payload from user-controlled fields
+// while preserving the static template markup (styles, tables, inline styles).
+// WHOLE_DOCUMENT keeps the <!DOCTYPE html><html><head><body> structure intact
+// so the print/PDF output stays a valid standalone HTML document.
+//
+// One allow-list hook: keep ONLY the static `window.print()` onclick that the
+// template emits for the “Cetak Sekarang” button. Any other inline handler or
+// script payload is stripped. The regex anchors the exact call so e.g.
+// `onclick="window.print();alert(1)"` or `window.print() + ...` is still removed.
+DOMPurify.addHook('uponSanitizeAttribute', (node, data) => {
+  if (data.attrName === 'onclick' && /^\s*window\.print\(\)\s*$/.test(data.attrValue || '')) {
+    data.keepAttr = true;
+  }
+});
+
+function sanitizePrintableHtml(html: string): string {
+  return DOMPurify.sanitize(html, {
+    WHOLE_DOCUMENT: true,
+    ADD_TAGS: ['style'],
+  });
 }
 
 // Helper to format evaluasi & RTL text strings into structured HTML lists or line breaks
@@ -541,7 +565,7 @@ function generatePrintableHTML(
     `;
   }
 
-  return `
+  return sanitizePrintableHtml(`
     <!DOCTYPE html>
     <html lang="id">
     <head>
@@ -570,7 +594,7 @@ function generatePrintableHTML(
       ${mainContent}
     </body>
     </html>
-  `;
+  `);
 }
 
 export default function PreviewCetakView({ docId, user, onBack, onNavigate }: PreviewCetakViewProps) {

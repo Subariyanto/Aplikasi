@@ -505,7 +505,7 @@ const INITIAL_USERS: Profile[] = [
     role: UserRole.ADMIN,
     nama_madrasah: 'Kementerian Agama Kab. Jember',
     nomor_hp: '082330647698',
-    email: 'subariyantoss@gmail.com',
+    email: 'admin@pokjawasjember.com',
     status_user: 'Aktif',
     tanggal_aktivasi: new Date().toISOString(),
     terakhir_login: new Date().toISOString()
