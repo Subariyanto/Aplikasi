@@ -26,6 +26,7 @@ import {
 import { motion } from 'motion/react';
 import { Profile, UserRole } from '../types';
 import { db, getSupabaseCredentials, saveSupabaseCredentials, isSupabaseConnected } from '../lib/db';
+import { hashPassword } from '../lib/password';
 
 interface PengaturanViewProps {
   user: Profile;
@@ -81,7 +82,7 @@ export default function PengaturanView({ user, onProfileUpdate }: PengaturanView
       };
 
       if (newPassword.trim()) {
-        updates.password_hash = newPassword.trim();
+        updates.password_hash = await hashPassword(newPassword.trim());
       }
 
       const updated = await db.profiles.update(user.id, updates);

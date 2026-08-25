@@ -85,7 +85,7 @@ export default function UserManagementView({ user, onNavigate }: UserManagementV
     setEditingProfile(profile);
     setNamaLengkap(profile.nama_lengkap);
     setUsername(profile.username);
-    setPassword(profile.password_hash);
+    setPassword('');
     setRole(profile.role);
     setNamaMadrasah(profile.nama_madrasah || '');
     setNomorHp(profile.nomor_hp || '');
@@ -124,25 +124,32 @@ export default function UserManagementView({ user, onNavigate }: UserManagementV
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!username.trim() || !password.trim()) {
-      alert('Username dan Password tidak boleh kosong');
+    if (!username.trim()) {
+      alert('Username tidak boleh kosong');
+      return;
+    }
+    if (!editingProfile && !password.trim()) {
+      alert('Password tidak boleh kosong untuk akun baru');
       return;
     }
 
     try {
       if (editingProfile) {
-        // Edit User
-        await db.profiles.update(editingProfile.id, {
+        // Edit User — password bersifat opsional; hash hanya jika diisi ulang
+        const updates: any = {
           nama_lengkap: namaLengkap,
           username: username.toLowerCase().replace(/\s+/g, ''),
-          password_hash: password,
           role: role,
           nama_madrasah: namaMadrasah,
           nomor_hp: nomorHp,
           email: email,
           status_user: statusUser,
           kode_aktivasi: kodeAktivasi
-        });
+        };
+        if (password.trim()) {
+          updates.password_hash = await hashPassword(password);
+        }
+        await db.profiles.update(editingProfile.id, updates);
 
         // Log action
         await db.logs.create({
@@ -164,7 +171,7 @@ export default function UserManagementView({ user, onNavigate }: UserManagementV
         await db.profiles.create({
           nama_lengkap: namaLengkap,
           username: username.toLowerCase().replace(/\s+/g, ''),
-          password_hash: password,
+          password_hash: await hashPassword(password),
           role: role,
           nama_madrasah: namaMadrasah,
           nomor_hp: nomorHp,
@@ -528,7 +535,7 @@ export default function UserManagementView({ user, onNavigate }: UserManagementV
                           <span className="text-slate-800 font-bold">@{u.username}</span>
                           <span className="text-[10px] text-slate-400 flex items-center">
                             <Lock className="w-2.5 h-2.5 mr-1" />
-                            Pass: <strong className="text-slate-700 ml-1 font-semibold">{u.password_hash}</strong>
+                            Password tersimpan aman (hashed)
                           </span>
                         </div>
                       </td>

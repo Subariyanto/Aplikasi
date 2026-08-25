@@ -27,6 +27,7 @@ import {
 import { motion } from 'motion/react';
 import { Profile, UserRole } from '../types';
 import { db } from '../lib/db';
+import { hashPassword, verifyPassword } from '../lib/password';
 import { FULL_LICENSE_PRICE, CONTACT_PERSON_NAME, CONTACT_PERSON_PHONE } from '../lib/trial';
 
 interface LoginViewProps {
@@ -127,10 +128,11 @@ export default function LoginView({ simulatedProfiles = [], onLoginSuccess }: Lo
       }
 
       // 3. Create new activated profile
+      const hashedPass = await hashPassword(cleanPass);
       const newActivatedProfile: Profile = await db.profiles.create({
         nama_lengkap: cleanNama,
         username: cleanUser,
-        password_hash: cleanPass,
+        password_hash: hashedPass,
         role: codeRecord.role_tujuan || UserRole.KOORDINATOR_KOKURIKULER,
         nama_madrasah: codeRecord.nama_madrasah_tujuan || 'Madrasah Kemenag Kab. Jember',
         nomor_hp: '081234567890',
@@ -201,7 +203,8 @@ export default function LoginView({ simulatedProfiles = [], onLoginSuccess }: Lo
       // 1. First check in DB profiles (including newly registered users)
       const dbProfile = await db.profiles.getByUsername(normalizedUsername);
       if (dbProfile) {
-        if (dbProfile.password_hash !== passwordInput) {
+        const passOk = await verifyPassword(passwordInput, dbProfile.password_hash);
+        if (!passOk) {
           setErrorMsg('Kata sandi yang Anda masukkan salah. Silakan coba lagi.');
           setIsLoading(false);
           return;
@@ -229,7 +232,8 @@ export default function LoginView({ simulatedProfiles = [], onLoginSuccess }: Lo
       // 2. Check in simulated profiles fallback
       const foundSimulated = simulatedProfiles.find(p => p.username.toLowerCase() === normalizedUsername);
       if (foundSimulated) {
-        if (foundSimulated.password_hash !== passwordInput) {
+        const simPassOk = await verifyPassword(passwordInput, foundSimulated.password_hash);
+        if (!simPassOk) {
           setErrorMsg('Kata sandi yang Anda masukkan salah. Silakan coba lagi.');
           setIsLoading(false);
           return;
@@ -278,7 +282,7 @@ export default function LoginView({ simulatedProfiles = [], onLoginSuccess }: Lo
         trialUser = await db.profiles.create({
           nama_lengkap: 'Pengguna Trial 3 Hari',
           username: 'trial',
-          password_hash: 'trial123',
+          password_hash: 'sha256$trial$4bca2e73d8b5f7ec68ae825ae3dcff88492749891c28a8ab16f7626dd4e65fe2',
           role: UserRole.TRIAL,
           nama_madrasah: 'Madrasah Trial Kemenag',
           nomor_hp: '081234567899',
