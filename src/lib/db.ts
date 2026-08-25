@@ -657,24 +657,12 @@ export const db = {
       const foundLocal = list.find(c => c.kode.replace(/[^A-Za-z0-9]/g, '').toUpperCase() === cleanInput);
       if (foundLocal) return foundLocal;
 
-      // Fallback: If code starts with PKMG or is a valid formatted code length (e.g. 8+ chars), return dynamic valid license
-      if (cleanInput.startsWith('PKMG') || cleanInput.length >= 8) {
-        return {
-          id: 'dynamic-' + cleanInput,
-          kode: kode.trim().toUpperCase(),
-          nama_paket: 'Paket Lisensi Full Akses Madrasah',
-          role_tujuan: UserRole.KOORDINATOR_KOKURIKULER,
-          nama_madrasah_tujuan: 'Madrasah Penerima Lisensi',
-          status: 'Aktif',
-          tanggal_mulai: new Date().toISOString().split('T')[0],
-          tanggal_kedaluwarsa: '2030-12-31',
-          jenis_penggunaan: 'Bisa Dipakai Beberapa Kali',
-          batas_maksimal_penggunaan: 1000,
-          jumlah_terpakai: 0,
-          dibuat_oleh: 'system',
-          catatan: 'Lisensi Resmi Terverifikasi'
-        };
-      }
+      // SECURITY: Only codes that actually exist in the active store may be
+      // validated. The previous “dynamic valid license” fallback (accepting any
+      // code that started with PKMG or was >=8 chars) let anyone mint a valid
+      // full-license with a made-up string — rendering every admin-issued code
+      // meaningless. That bypass is removed. Only admin-issued codes stored in
+      // Supabase (server-side) or local data now validate.
 
       return null;
     },
