@@ -698,7 +698,6 @@ export const db = {
 
       return null;
     },
-    },
     async create(code: Omit<ActivationCode, 'id' | 'created_at' | 'jumlah_terpakai'>): Promise<ActivationCode> {
       const newCode: ActivationCode = {
         ...code,
